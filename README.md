@@ -79,10 +79,10 @@ tabix -p vcf "$VCF_NODUP"
 #### The cleaned VCF file is saved, and Beagle phasing can now start.
 ## End of `launchBeagle.sh` and the phased output file is correct.
 
-# Analyzing trio data in VCF files for assessing Mendelian consistency and phasing accuracy
-#### To get started, you'll need:
-1 - Phased VCF/BCF file: This is typically the output from phasing software like Beagle, where genotypes are marked with | for phased genotypes.
-2 - Pedigree file: It defines the relationships within the family (ID, father, mother). You've already shared an example format for this.
+# Trio data for assessing Phasing accuracy
+## To get started, you'll need:
+1 - Phased VCF/BCF file: This is typically the output from phasing software like Beagle, where genotypes are marked with | for phased genotypes (`input_phased.vcf.gz`)
+2 - Pedigree file: It defines the relationships within the family (ID, father, mother). 
 ### Step 1 : Prepare files
 #### The VCF file should have a similar structure:
 ```bash
@@ -99,9 +99,10 @@ tabix -p vcf "$VCF_NODUP"
 1       29374   UKUL3   G       A       .       PASS    .       GT      0|0     0|1     1|0     0|0     0|0     0|1     1|0     1|0     0|1     1|1     1|1     0|1     1|0     0|1     1|0     1|1     1|0  >
 1       115704  BIEC2_25        A       G       .       PASS    .       GT      0|0     1|0     0|0     0|0     0|0     0|0     0|0     0|0     1|0     0|0     0|0     1|0     0|0     0|0     0|0     0|0  >
 ```
-#### The ped file should have a similar structure
+#### The ped file should have a similar structure (`ped.txt`)
 ```bash
 child1  father1  mother1  
 father1  0        0       
 mother1  0        0        
 ```
+
