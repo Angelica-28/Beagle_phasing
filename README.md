@@ -1,5 +1,4 @@
 # Beagle_phasing
-=
 ## To start
 #### Beagle will be used in conda for this tutorial, so it is necessary to install Anaconda. Java is also required.
 
@@ -39,7 +38,8 @@ conda create -n beagle-env openjdk bcftools htslib -c bioconda -c conda-forge
 - create an enviroment called  `beale-env`;
 - install `openjdk` (necessary to launch `.jar`);
 - install `bcftools` and htslib necessary for working with VCF.
-> Note: beagle is not avaible as a conda package, it's necessary to dowload the `.jar` manually.
+> [!WARNING]
+> Note: Beagle is not avaible as a conda package, it's necessary to dowload the `.jar` manually.
 ```python
 conda activate beagle-env
 ```
@@ -48,8 +48,10 @@ conda activate beagle-env
 ```python
 wget https://faculty.washington.edu/browning/beagle/beagle.27Feb25.75f.jar
 ```
+> [!NOTE]
 > In this case we are using the Beagle.27Feb25.75f version
 #### Once is all set we can lauch the script `launchbeagle.sh` to run beagle 
+> [!NOTE]
 > make sure the file ar compressed and have a index (.tbi)
 ```python
 bgzip input.vcf
