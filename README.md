@@ -101,8 +101,12 @@ tabix -p vcf "$VCF_NODUP"
 ```
 #### The ped file should have a similar structure (`ped.txt`)
 ```bash
-child1  father1  mother1  
-father1  0        0       
-mother1  0        0        
+fam child1  father1  mother1  
+1   father1  0        0       
+1   mother1  0        0        
 ```
-
+>[!NOTE]
+>fam can be a fake id, since the programs ignore the first column
+```bash
+bcftools +trio-stats input_phased.vcf.gz -p ped.txt -d mendel-errors -o trio_stats.txt
+```
