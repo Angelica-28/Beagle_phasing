@@ -1,5 +1,5 @@
 # Beagle_phasing
-
+=
 ## To start
 #### Beagle will be used in conda for this tutorial, so it is necessary to install Anaconda. Java is also required.
 
@@ -49,16 +49,16 @@ conda activate beagle-env
 wget https://faculty.washington.edu/browning/beagle/beagle.27Feb25.75f.jar
 ```
 > In this case we are using the Beagle.27Feb25.75f version
-#### Once is all set we can lauch the script `launchbeagle.txt` to run beagle 
+#### Once is all set we can lauch the script `launchbeagle.sh` to run beagle 
 > make sure the file ar compressed and have a index (.tbi)
 ```python
 bgzip input.vcf
 tabix -p vcf input.vcf.gz
 ```
 ## 3 - Phasing & launchbeagle script 
-#### Need to cheek for duplicate markers or Beagle can start the iteractions 
+#### The `launchbeagle.sh` script will check for duplicate markers and launch Beagle to phase the `input.vcf.gz` file. Below are the explanations of the script.
 #### Header extraction
-```python
+```bash
 bcftools view -h "$VCF_ORIG" > "$OUTDIR/header.vcf"
 ```
 #### Excluding duplicates
@@ -74,8 +74,8 @@ cat "$OUTDIR/header.vcf" <(awk 'BEGIN {OFS="\t"} {print $0}' "$OUTDIR/body.vcf")
 ```bash
 tabix -p vcf "$VCF_NODUP"
 ```
-#### Clean VCF file is saved and Beagle phasing can start
-## End of laucnhBeagle.sh and we have phased output file
+#### The cleaned VCF file is saved, and Beagle phasing can now start.
+## End of `launchBeagle.sh` and the phased output file is correct.
 
 # Analyzing trio data in VCF files for assessing Mendelian consistency and phasing accuracy
 #### To get started, you'll need:
