@@ -9,17 +9,17 @@
 
 ## 1 - Creating VCF file with Plink
 #### First, I need to extract the samples for the analysis and replace the correct IDs.
-#### Extracting the samples that are needed based on the breed (in this case, TPR) and create the `sample.ped` file:
+#### Extracting the samples that are needed based on the breed (in this case, BREED) and create the `sample.ped` file:
 ```bash
-grep '^TPR' firstinput.ped > sample.ped
+grep '^BREED' firstinput.ped > sample.ped
 ```
 #### Replacing the IDSample with the MATR and create the `updated_sample.ped` file
 #### `SampleID_ID.txt`
 ```bash
 IDsample MATR 
-horse001 TPR001
-horse002 TPR002
-horse003 TPR003
+ani001 BREED001
+ani002 BREED002
+ani003 BREED003
 
 ```
 ```bash
@@ -94,7 +94,7 @@ tabix -p vcf "$VCF_NODUP"
 ##INFO=<ID=IMP,Number=0,Type=Flag,Description="Imputed marker">
 ##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
 ##FORMAT=<ID=DS,Number=A,Type=Float,Description="estimated ALT dose [P(RA) + 2*P(AA)]">
-#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  ID_18EQ10137/02        ID_18EQ10143/01        ID_19EQ30390/01        ID_19EQ31113/01        ID_21EQ01288/02        ID_21EQ01289>
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT  BREED01  BREED02  BREED03   BREED04   BREED05  BREED06 BREED07 BREED08 BREED09 >
 1       14892   UKUL1   G       A       .       PASS    .       GT      0|0     0|0     0|1     0|0     1|1     1|0     0|0     0|1     0|0     0|0     0|0     0|0     0|1     1|0     0|1     0|0     0|0  >
 1       29374   UKUL3   G       A       .       PASS    .       GT      0|0     0|1     1|0     0|0     0|0     0|1     1|0     1|0     0|1     1|1     1|1     0|1     1|0     0|1     1|0     1|1     1|0  >
 1       115704  BIEC2_25        A       G       .       PASS    .       GT      0|0     1|0     0|0     0|0     0|0     0|0     0|0     0|0     1|0     0|0     0|0     1|0     0|0     0|0     0|0     0|0  >
